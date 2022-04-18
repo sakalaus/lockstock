@@ -1,4 +1,4 @@
-package com.plcoding.stockmarketapp
+package com.picky.lockstock
 
 import org.junit.Test
 

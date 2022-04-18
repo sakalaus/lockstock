@@ -1,4 +1,4 @@
-package com.plcoding.stockmarketapp.ui.theme
+package com.picky.lockstock.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
