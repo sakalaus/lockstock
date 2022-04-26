@@ -7,6 +7,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.picky.lockstock.presentation.company_listings.CompanyListingsEvent
+import com.picky.lockstock.presentation.company_listings.CompanyListingsViewModel
 import com.picky.lockstock.presentation.company_listings.NavGraphs
 import com.picky.lockstock.ui.theme.StockMarketAppTheme
 import com.ramcosta.composedestinations.DestinationsNavHost
@@ -22,7 +25,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    DestinationsNavHost(navGraph = NavGraphs.root)    
+                    DestinationsNavHost(navGraph = NavGraphs.root)
                 }
             }
         }

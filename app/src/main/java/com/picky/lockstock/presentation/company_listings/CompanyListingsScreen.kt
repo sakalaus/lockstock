@@ -27,6 +27,7 @@ fun CompanyListingsScreen(
 ){
     val state = viewModel.state
     val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = state.isRefreshing)
+
     Column(
         modifier = Modifier.fillMaxSize()
     ){
