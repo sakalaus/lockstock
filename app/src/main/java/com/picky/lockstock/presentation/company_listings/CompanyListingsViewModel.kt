@@ -46,19 +46,19 @@ class CompanyListingsViewModel @Inject constructor(
                 .collect { result ->
                     when (result) {
                         is Resource.Success -> {
-                            result.data?.let { listings ->
-                                {
-                                    state = state.copy(companies = listings)
-                                }
-                            }
+                            state = state.copy(companies = result.data!!)
+//                            result.data?.let { listings ->
+//                                {
+//                                    state = state.copy(companies = listings)
+//                                }
+//                            }
                         }
                         is Resource.Error -> {}
                         is Resource.Loading -> {
                             state = state.copy(isLoading = result.isLoading)
                         }
                     }
-                }
-        }
+                }}
     }
 
 }

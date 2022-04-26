@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import com.picky.lockstock.domain.model.CompanyListingModel
 
 @Composable
-fun companyItem(
+fun CompanyItem(
     company: CompanyListingModel,
     modifier: Modifier = Modifier
 ) {
@@ -27,7 +27,6 @@ fun companyItem(
             modifier = Modifier.weight(1f)
         ) {
             Row(
-                modifier.fillMaxWidth()
             ) {
                 Text(
                     text = company.name,
@@ -45,7 +44,7 @@ fun companyItem(
                     color = MaterialTheme.colors.onBackground
                 )
             }
-            Spacer(modifier = Modifier.height(6.dp))
+            Spacer(modifier = Modifier.height(1.dp))
             Text(
                 text = "(${company.symbol})",
                 fontStyle = FontStyle.Italic,
