@@ -1,7 +1,7 @@
 package com.picky.lockstock.data.repository
 import com.picky.lockstock.data.csv.CSVParser
-import com.picky.lockstock.data.csv.IntradayInfoParser
 import com.picky.lockstock.data.local.StockDataBase
+import com.picky.lockstock.data.mappers.toCompanyInfoModel
 import com.picky.lockstock.data.mappers.toCompanyListingEntity
 import com.picky.lockstock.data.mappers.toCompanyListingModel
 import com.picky.lockstock.data.remote.StockAPI
@@ -12,10 +12,8 @@ import com.picky.lockstock.domain.repository.StockRepository
 import com.picky.lockstock.util.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import okhttp3.internal.immutableListOf
 import retrofit2.HttpException
 import java.io.IOException
-import java.time.LocalDateTime
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -97,6 +95,7 @@ class StockRepositoryImpl @Inject constructor(
 
         return try {
             val response = api.getCompanyInfo(symbol)
+            Resource.Success(response.toCompanyInfoModel())
             // TODO Handle this
             Resource.Error(message = "")
         } catch (e: IOException) {

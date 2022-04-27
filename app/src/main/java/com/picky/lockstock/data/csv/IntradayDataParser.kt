@@ -12,7 +12,7 @@ import java.io.InputStreamReader
 import java.time.LocalDateTime
 import javax.inject.Inject
 
-class IntradayInfoParser @Inject constructor(): CSVParser<IntradayDataModel> {
+class IntradayDataParser @Inject constructor(): CSVParser<IntradayDataModel> {
 
     override suspend fun parse(stream: InputStream): List<IntradayDataModel> {
         val csvReader = CSVReader(InputStreamReader(stream))

@@ -15,10 +15,10 @@ interface StockRepository {
 
     suspend fun getIntradayInfo(
         symbol: String
-    ): Resource<List<IntradayDataModel>>
+    ): Resource<List<IntradayDataModel>>?
 
     suspend fun getCompanyInfo(
         symbol: String
-    ): Resource<List<CompanyInfoModel>>
+    ): Resource<CompanyInfoModel>
 
 }
