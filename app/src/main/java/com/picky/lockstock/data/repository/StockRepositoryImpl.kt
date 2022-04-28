@@ -91,13 +91,11 @@ class StockRepositoryImpl @Inject constructor(
 
     }
 
-    override suspend fun getCompanyInfo(symbol: String): Resource<List<CompanyInfoModel>> {
+    override suspend fun getCompanyInfo(symbol: String): Resource<CompanyInfoModel> {
 
         return try {
             val response = api.getCompanyInfo(symbol)
             Resource.Success(response.toCompanyInfoModel())
-            // TODO Handle this
-            Resource.Error(message = "")
         } catch (e: IOException) {
             e.printStackTrace()
             Resource.Error(message = "IO Exception")

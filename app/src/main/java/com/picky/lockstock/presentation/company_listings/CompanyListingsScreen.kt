@@ -18,6 +18,7 @@ import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import androidx.compose.foundation.lazy.items
+import com.picky.lockstock.presentation.destinations.CompanyInfoScreenDestination
 
 @Composable
 @Destination(start = true)
@@ -60,7 +61,9 @@ fun CompanyListingsScreen(
                             .fillMaxWidth()
                             .padding(16.dp)
                             .clickable {
-                                // TODO: navigate to detail screen
+                                navigator.navigate(
+                                    CompanyInfoScreenDestination(company.symbol)
+                                )
                             }
                     )
                     if (index < state.companies.size) {

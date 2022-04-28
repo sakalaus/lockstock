@@ -1,9 +1,11 @@
 package com.picky.lockstock.presentation.company_info
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -15,7 +17,7 @@ import com.ramcosta.composedestinations.annotation.Destination
 
 @Composable
 @Destination
-private fun CompanyInfoScreen(
+fun CompanyInfoScreen(
     symbol: String,
     viewModel: CompanyInfoViewModel = hiltViewModel()
 ) {
@@ -78,7 +80,28 @@ private fun CompanyInfoScreen(
 
                 }
             }
+            Spacer(
+                modifier = Modifier.height(8.dp)
+            )
+            IntradayDataTable()
         }
+
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            if (state.isLoading){
+                CircularProgressIndicator()
+            } else if (state.error !=null ) {
+                Text(
+                    text = "",
+                    fontSize = 14.sp,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
+        }
+
     }
 
 
